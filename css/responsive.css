@@ -1,0 +1,286 @@
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+.container {
+  width: calc(100% - 32px);
+  max-width: 1200px;
+}
+
+.divider {
+  width: min(330px, 100%);
+}
+
+.tabcontent__descr {
+  width: auto;
+  max-width: 100%;
+}
+
+.bgc_y {
+  max-width: 100%;
+  right: 0;
+}
+
+.offer__action .btn {
+  max-width: 100%;
+}
+
+.offer__slider-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.preview-status {
+  margin: 8px auto;
+  padding: 10px 16px;
+  max-width: 1200px;
+  border-left: 3px solid #54ed39;
+  background: #f4fff1;
+  line-height: 1.5;
+}
+
+@media (max-width: 1024px) {
+  .header {
+    height: auto;
+    padding: 24px 16px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .header__left-block {
+    min-width: 0;
+    flex: 1 1 320px;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .header__links {
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+
+  .header__link {
+    margin-right: 0;
+  }
+
+  .sidepanel {
+    display: none;
+  }
+
+  .tabcontainer {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .tabcontent {
+    width: 100%;
+  }
+
+  .tabcontent__descr {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 16px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .tabcontent img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .tabheader {
+    width: 100%;
+  }
+
+  .tabheader__items {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .preview__life {
+    margin-left: 0;
+  }
+
+  .offer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+
+  .promotion .container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+
+  .promotion__descr,
+  .promotion__timer {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .offer__text,
+  .offer__advantages,
+  .offer__action,
+  .offer__slider {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .offer__action {
+    justify-content: flex-start;
+  }
+
+  .offer__slider {
+    margin-top: 0;
+    align-items: stretch;
+  }
+
+  .offer__slider-wrapper {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .offer__slider-counter {
+    align-self: flex-end;
+  }
+
+  .order__form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .order__input,
+  .order__form button {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .order__form img {
+    width: 36px;
+    height: 36px;
+    align-self: center;
+    transform: rotate(90deg);
+  }
+
+  .timer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .timer__block {
+    width: auto;
+    flex: 1 1 calc(50% - 8px);
+    max-width: 110px;
+  }
+
+  .promotion__timer {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .call,
+  .subtitle,
+  .link {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .calculating__choose,
+  .calculating__choose_medium,
+  .calculating__choose_big {
+    width: 100%;
+    max-width: 100%;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .calculating__choose-item,
+  .calculating__choose_big .calculating__choose-item {
+    width: auto;
+    min-height: 50px;
+    flex: 1 1 150px;
+  }
+
+  .calculating__divider,
+  .calculating__total {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header__left-block {
+    flex-direction: column;
+  }
+
+  .header__link {
+    font-size: 16px;
+  }
+
+  .header__right-block .btn,
+  .btn {
+    min-height: 44px;
+    max-width: 100%;
+  }
+
+  .title {
+    font-size: clamp(24px, 7vw, 32px);
+    line-height: 1.2;
+  }
+
+  .preview {
+    padding: 20px 0 40px;
+  }
+
+  .tabcontent__descr {
+    padding: 16px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .offer__slider-counter {
+    gap: 8px;
+    right: 0;
+  }
+
+  .bgc_y {
+    left: 0;
+    right: 0;
+    width: auto;
+  }
+
+  .offer__action .btn {
+    width: 100%;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .modal__dialog {
+    width: calc(100% - 24px);
+    max-width: 420px;
+  }
+}
