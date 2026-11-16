@@ -1,52 +1,33 @@
-# Проектная работа: "Food". Создана в рамках учебы в [Udemy](https://www.udemy.com/) на курсе ["JavaScript + React - с нуля до результата"](https://www.udemy.com/share/10208o3@pbk0Qct3LqNmxPKbgZxJWvF_zsCaoOpmyr4l1Okp0h4S7m-UHw3ccUbxrPJYKSMgkw==/).
+# Food Landing Page
 
-## Описание:
+A responsive landing page for a healthy meal service, built with vanilla JavaScript and Webpack.
 
-"Food" - это типовой одностраничный сайт, где пользователи могут заказать здоровое питание.
+## Live page
 
-| **GithHub Pages** | [Проектная работа на GitHub Pages](https://goldlexx.github.io/food/) |
-| ----------------- | -------------------------------------------------------------------- |
+[Open the GitHub Pages demo](https://goldlexx.github.io/food/).
 
-## Функционал:
+The page is static on GitHub Pages. Menu and request API calls use a local JSON Server and are available when running the project locally.
 
-* Всплывающий popup
-* Расчет потребности в калориях
-* Таймер отсчета
+## Run locally
 
-## Технологии:
+Use Node.js 18.12 or newer, then install dependencies and build the JavaScript bundle:
 
-* Flexbox
-* Webpack
-* BEM Methodology
-* Git
-* JavaScript
-
-## Инструкция по установке:
-
-```
-git clone https://github.com/goldlexx/food.git
-cd food
+```sh
 npm install
 npm run build
 ```
 
-После сборки откройте `index.html` через локальный HTTP-сервер. Проект не содержит автоматизированных тестов.
+Start the local API in one terminal:
 
+```sh
+npm run server
+```
 
-## Будущая доработка проекта будет включать в себя:
+Serve the repository root over HTTP in another terminal and open `index.html`. The mock API listens on `127.0.0.1:3000` and reads `db.json`.
 
-* Перевод проекта на react
+## Technologies
 
-## Языки:
-
-* JavaScript
-
-
-
-
-
-
-
-
-
-
+- HTML and CSS
+- JavaScript with Babel
+- Webpack 5
+- JSON Server 0.17
