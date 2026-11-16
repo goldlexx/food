@@ -1,10 +1,10 @@
 import {closeModal, openModal} from './modal';
-import {postData} from '../services/services';
+import {getApiBaseUrl, postData} from '../services/services';
 function forms(formsSelector, modalTimerId) {
     const forms = document.querySelectorAll(formsSelector);
     const message = {
         loading: 'img/form/spinner.svg',
-        success: 'Спасибо! Скоро мы с вами свяжемся',
+        success: 'Заявка сохранена в локальном демо-сервере.',
         failure: 'Что-то пошло не так...'
     };
 
@@ -15,6 +15,11 @@ function forms(formsSelector, modalTimerId) {
     function bindPostData(form) {
         form.addEventListener('submit', (e) => {
             e.preventDefault();
+
+            if (!getApiBaseUrl()) {
+                showThanksModal('Это публичное демо: заявки не отправляются.');
+                return;
+            }
 
             let statusMessage = document.createElement('img');
             statusMessage.src = message.loading;
@@ -28,15 +33,14 @@ function forms(formsSelector, modalTimerId) {
 
             const json = JSON.stringify(Object.fromEntries(formData.entries()));
 
-            postData('http://localhost:3000/requests', json)
-            .then(data => {
-                console.log(data);
+            postData('requests', json)
+            .then(() => {
                 showThanksModal(message.success);
-                statusMessage.remove();
+                form.reset();
             }).catch(() => {
                 showThanksModal(message.failure);
             }).finally(() => {
-                form.reset();
+                statusMessage.remove();
             });
         });
     }

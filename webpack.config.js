@@ -7,9 +7,9 @@ module.exports = {
   entry: './js/script.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'js')
+    path: path.resolve(__dirname, 'dist/js')
   },
-  devtool: 'source-map',
+  devtool: false,
 
   module: {
     rules: [

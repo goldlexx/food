@@ -6,24 +6,26 @@ A responsive landing page for a healthy meal service, built with vanilla JavaScr
 
 [Open the GitHub Pages demo](https://goldlexx.github.io/food/).
 
-The page is static on GitHub Pages. Menu and request API calls use a local JSON Server and are available when running the project locally.
+The public page is a static demo. Its menu is loaded from the included `db.json` sample data; order forms clearly report that requests are not sent. Locally, the menu and forms can use the JSON Server mock API.
 
 ## Run locally
 
 Use Node.js 18.12 or newer, then install dependencies and build the JavaScript bundle:
 
 ```sh
-npm install
+npm ci
 npm run build
 ```
 
-Start the local API in one terminal:
+Start the local mock API in one terminal:
 
 ```sh
 npm run server
 ```
 
-Serve the repository root over HTTP in another terminal and open `index.html`. The mock API listens on `127.0.0.1:3000` and reads `db.json`.
+Serve the repository root over HTTP in another terminal and open `index.html`. The mock API listens on `127.0.0.1:3000` and reads `db.json`. Requests created there are test data only; they do not contact a real food service.
+
+The GitHub Pages workflow builds the JavaScript bundle from source and publishes it with the static menu data.
 
 ## Technologies
 
