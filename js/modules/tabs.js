@@ -1,39 +1,32 @@
-function tabs(tabsSelector, tabsContentSelector, tabsParentSelector, activeClass) {
-	let tabs = document.querySelectorAll(tabsSelector),
-		tabsContent = document.querySelectorAll(tabsContentSelector),
-		tabsParent = document.querySelector(tabsParentSelector);
+function tabs(tabsSelector, contentSelector, parentSelector, activeClass) {
+    const tabList = document.querySelector(parentSelector);
+    const tabButtons = Array.from(document.querySelectorAll(tabsSelector));
+    const panels = Array.from(document.querySelectorAll(contentSelector));
+    if (!tabList || !tabButtons.length || tabButtons.length !== panels.length) return;
 
-	function hideTabContent() {
-        
-        tabsContent.forEach(item => {
-            item.classList.add('hide');
-            item.classList.remove('show', 'fade');
+    const activate = index => {
+        tabButtons.forEach((button, position) => {
+            const selected = position === index;
+            button.classList.toggle(activeClass, selected);
+            button.setAttribute('aria-selected', String(selected));
+            button.tabIndex = selected ? 0 : -1;
+            panels[position].hidden = !selected;
         });
+    };
 
-        tabs.forEach(item => {
-            item.classList.remove(activeClass);
-        });
-	}
-
-	function showTabContent(i = 0) {
-        tabsContent[i].classList.add('show', 'fade');
-        tabsContent[i].classList.remove('hide');
-        tabs[i].classList.add(activeClass);
-    }
-    
-    hideTabContent();
-    showTabContent();
-
-	tabsParent.addEventListener('click', function(event) {
-        const target = event.target;
-		if(target && target.classList.contains(tabsSelector.slice(1))) {
-            tabs.forEach((item, i) => {
-                if (target == item) {
-                    hideTabContent();
-                    showTabContent(i);
-                }
-            });
-		}
+    activate(0);
+    tabList.addEventListener('click', event => {
+        const button = event.target.closest(tabsSelector);
+        if (button && tabList.contains(button)) activate(tabButtons.indexOf(button));
+    });
+    tabList.addEventListener('keydown', event => {
+        const current = tabButtons.indexOf(document.activeElement);
+        if (current < 0 || !['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return;
+        event.preventDefault();
+        const next = event.key === 'Home' ? 0 : event.key === 'End' ? tabButtons.length - 1 :
+            (current + (event.key === 'ArrowRight' ? 1 : -1) + tabButtons.length) % tabButtons.length;
+        tabButtons[next].focus();
+        activate(next);
     });
 }
 

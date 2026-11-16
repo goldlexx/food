@@ -1,280 +1,269 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Food</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-</head>
-<body>
-    <header class="header">
-        <div class="header__left-block">
-            <div class="header__logo">
-                <img src="icons/logo.svg" alt="Логотип">
-            </div>
-            <nav class="header__links">
-                <a href="#menu" class="header__link">Доставка питания</a>
-                <a href="#promotion" class="header__link">Акции</a>
-            </nav>
-        </div>
-        <div class="header__right-block">
-            <button class="btn btn_white" data-modal>Связаться с нами</button>
-        </div>
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Интерактивный учебный демо-проект о планировании меню и пищевых привычках."
+    />
+    <meta name="theme-color" content="#f6f5ee" />
+    <title>Green Table — демо меню</title>
+    <link rel="icon" href="icons/veg.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <header class="header site-header" id="top">
+      <a class="brand" href="#top" aria-label="Green Table — наверх">
+        <span class="brand__mark" aria-hidden="true"><img src="icons/veg.svg" alt="" /></span>
+        <span class="brand__name">green<span>table</span></span>
+      </a>
+
+      <nav class="header__links" aria-label="Основная навигация">
+        <a class="header__link" href="#approach">Идея</a>
+        <a class="header__link" href="#menu">Пример меню</a>
+        <a class="header__link" href="#calculator">Калькулятор</a>
+      </nav>
+
+      <button class="btn btn_outline header__action" type="button" data-modal>
+        О проекте
+      </button>
     </header>
-    <p class="preview-status" role="status">Публичное демо загружает меню из локальных данных. Заявки отправляются только в локальный тестовый JSON Server.</p>
-    <div class="sidepanel">
-        <div class="sidepanel__text"><span>Социальные сети</span></div>
-        <div class="sidepanel__divider"></div>
-        <span class="sidepanel__icon" aria-hidden="true">
-            <img src="icons/instagram.svg" alt="">
-        </span>
-        <span class="sidepanel__icon" aria-hidden="true">
-            <img src="icons/facebook.svg" alt="">
-        </span>
-    </div>
 
-    <div class="preview">
-        <div class="bgc_blue"></div>
-        <div class="container">
-            <div class="tabcontainer">
-                <div class="tabcontent">
-                    <img src="img/tabs/vegy.jpg" alt="vegy">
-                    <div class="tabcontent__descr">
-                        Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Для людей, которые интересуются спортом; активных и здоровых. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!
-                    </div>
-                </div>
-                <div class="tabcontent">
-                    <img src="img/tabs/elite.jpg" alt="elite">
-                    <div class="tabcontent__descr">
-                        Меню “Премиум” - мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!                                     
-                    </div>
-                </div>
-                <div class="tabcontent">
-                    <img src="img/tabs/post.jpg" alt="post">
-                    <div class="tabcontent__descr">
-                        Наше специальное “Постное меню” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения. Полная гармония с собой и природой в каждом элементе! Все будет Ом!                                     
-                    </div>
-                </div>
-                <div class="tabcontent">
-                    <img src="img/tabs/vegy.jpg" alt="vegy">
-                    <div class="tabcontent__descr">
-                        Меню "Сбалансированное" - это соответствие вашего рациона всем научным рекомендациям. Мы тщательно просчитываем вашу потребность в к/б/ж/у и создаем лучшие блюда для вас.
-                    </div>
-                </div>
-                <div class="tabheader">
-                    <h3>Выберите стиль питания</h3>
-                    <div class="tabheader__items">
-                        <div class="tabheader__item tabheader__item_active">Фитнес</div>
-                        <div class="tabheader__item">Премиум</div>
-                        <div class="tabheader__item">Постное</div>
-                        <div class="tabheader__item">Сбалансированное</div>
-                    </div>
-                </div>
-            </div>
-            <div class="preview__life">Живи полной жизнью!</div>
+    <main>
+      <section class="hero section-shell" aria-labelledby="hero-title">
+        <div class="hero__content">
+          <p class="eyebrow"><span class="eyebrow__dot"></span>Учебный frontend-проект</p>
+          <h1 id="hero-title">Идеи для меню, которые легко <em>примерить</em> на свой день.</h1>
+          <p class="hero__lead">
+            Green Table — интерактивный демо-сайт с примерами меню, простой оценкой калорийности
+            и небольшой галереей. Здесь нет реальной доставки или приёма заказов.
+          </p>
+          <div class="hero__actions">
+            <a class="btn btn_primary" href="#menu">Смотреть демо-меню <span aria-hidden="true">↘</span></a>
+            <a class="text-link" href="#calculator">Открыть калькулятор</a>
+          </div>
+          <p class="demo-note"><span aria-hidden="true">✳</span> Публичное демо · данные меню локальные · заявки не отправляются</p>
         </div>
-    </div>
 
-    <div class="divider"></div>
-
-    <div class="offer">
-        <div class="bgc_y"></div>
-        <div class="container">
-            <div class="offer__text">
-                <h2 class="title">Что мы можем вам предложить?</h2>
-                <div class="offer__descr">
-                    Наша основная идея - это правильное питание. Оно может быть простым и вкусным. Мы не просто доставка, мы сервис! Мы взяли на себя все расчеты БЖУ, калорийности, объемов порций и прочие важные, но скучные аспекты. Вам остается только полезная, сытная и правильная еда, которую мы привозим прямо под дверь.
-                </div>
-            </div>
-            <div class="offer__action">
-                <button class="btn btn_dark" data-modal>Связаться с нами</button>
-            </div>
+        <div class="hero__visual">
+          <div class="hero__photo-wrap">
+            <img
+              class="hero__photo"
+              src="img/slider/food-12.jpg"
+              alt="Пример блюда для оформления демо-меню"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </div>
+          <div class="hero__stamp" aria-hidden="true">ПРОСТО<br />И СО ВКУСОМ</div>
+          <div class="hero__caption">
+            <span class="hero__caption-label">ВИЗУАЛЬНЫЙ КОНЦЕПТ</span>
+            <span class="hero__caption-title">Овощи · зерно · зелень</span>
+          </div>
+          <span class="hero__decor hero__decor--one" aria-hidden="true"></span>
+          <span class="hero__decor hero__decor--two" aria-hidden="true"></span>
         </div>
-        <div class="container">
-            <div class="offer__advantages">
-                <h2>Быстро и полезно</h2>
-                <div class="offer__advantages-text">
-                    Готовка дома занимает много сил, времени и нервов. Мы привозим еду сразу на целый день, и ты можешь действовать так, как тебе удобно, не подстраиваясь ни под кого и будучи уверенным в качестве продукта!
-                </div>
-                <h2>Правильный рацион</h2>
-                <div class="offer__advantages-text">
-                    Мы разработали специальное меню, где учтены все нюансы правильного питания, от баланса БЖУ до их приготовления и дробления рациона.
-                </div>
-            </div>
-            <div class="offer__slider">
-                <div class="offer__slider-counter">
-                    <div class="offer__slider-prev">
-                        <img src="icons/left.svg" alt="prev">
-                    </div>
-                    <span id="current">03</span>
-                    /
-                    <span id="total">04</span>
-                    <div class="offer__slider-next">
-                        <img src="icons/right.svg" alt="next">
-                    </div>
-                </div>
-                <div class="offer__slider-wrapper">
-                    <div class="offer__slider-inner">
-                        <div class="offer__slide">
-                            <img src="img/slider/pepper.jpg" alt="pepper">
-                        </div>
-                        <div class="offer__slide">
-                            <img src="img/slider/food-12.jpg" alt="food">
-                        </div>
-                        <div class="offer__slide">
-                            <img src="img/slider/olive-oil.jpg" alt="oil">
-                        </div>
-                        <div class="offer__slide">
-                            <img src="img/slider/paprika.jpg" alt="paprika">
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </section>
+
+      <section class="approach section-shell" id="approach" aria-labelledby="approach-title">
+        <div class="section-heading section-heading--split">
+          <div>
+            <p class="eyebrow">ПОДХОД К ДЕМО</p>
+            <h2 id="approach-title">Небольшой проект<br />с понятными сценариями.</h2>
+          </div>
+          <p class="section-heading__copy">
+            Пример меню и расчёты — демонстрационные. Сайт помогает показать работу с интерфейсом,
+            локальными данными и интерактивными элементами.
+          </p>
         </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="calculating">
-        <div class="container">
-            <h2 class="title">Рассчитаем вашу потребность в калориях?
-            </h2>
-            <div class="calculating__field">
-                <div class="calculating__subtitle">
-                    Ваш пол
-                </div>
-                <div class="calculating__choose" id="gender">
-                    <div id="female" class="calculating__choose-item calculating__choose-item_active">Женщина</div>
-                    <div id="male" class="calculating__choose-item">Мужчина</div>
-                </div>
-
-                <div class="calculating__subtitle">
-                    Ваша конституция
-                </div>
-                <div class="calculating__choose calculating__choose_medium">
-                    <input type="text" id="height" placeholder="Введите рост" class="calculating__choose-item">
-                    <input type="text" id="weight" placeholder="Введите вес"  class="calculating__choose-item">
-                    <input type="text" id="age" placeholder="Введите возраст" class="calculating__choose-item">
-                </div>
-
-                <div class="calculating__subtitle">
-                    Выберите вашу физическая активность
-                </div>
-                <div class="calculating__choose calculating__choose_big">
-                    <div data-ratio="1.2" id="low" class="calculating__choose-item">Низкая активность </div>
-                    <div data-ratio="1.375" id="small"  class="calculating__choose-item calculating__choose-item_active">Невысокая активность</div>
-                    <div data-ratio="1.55" id="medium" class="calculating__choose-item">Умеренная активность</div>
-                    <div data-ratio="1.725" id="high" class="calculating__choose-item">Высокая активность</div>
-                </div>
-
-                <div class="calculating__divider"></div>
-
-                <div class="calculating__total">
-                    <div class="calculating__subtitle">
-                        Ваша суточная норма калорий:
-                    </div>
-                    <div class="calculating__result">
-                        <span>2700</span> ккал
-                    </div>
-                </div>
-            </div>
+        <div class="approach__grid">
+          <article class="approach-card">
+            <span class="approach-card__number">01</span>
+            <h3>Выбрать идею</h3>
+            <p>Переключайте варианты меню и посмотрите, как меняется содержание карточки.</p>
+          </article>
+          <article class="approach-card">
+            <span class="approach-card__number">02</span>
+            <h3>Собрать ориентир</h3>
+            <p>Калькулятор считает примерную суточную потребность по введённым данным.</p>
+          </article>
+          <article class="approach-card approach-card--accent">
+            <span class="approach-card__number">03</span>
+            <h3>Посмотреть детали</h3>
+            <p>Локальные фотографии и sample-данные демонстрируют состояние готового интерфейса.</p>
+          </article>
         </div>
-    </div>
+      </section>
 
-    <div class="divider"></div>
-
-    <div class="menu" id="menu">
-        <h2 class="title">Наше меню на день</h2>
-
-        <div class="menu__field">
-            <div class="container">
-
-            </div>
+      <section class="menu-styles section-shell" aria-labelledby="styles-title">
+        <div class="section-heading">
+          <p class="eyebrow">ЧЕТЫРЕ ВАРИАНТА</p>
+          <h2 id="styles-title">Выберите направление</h2>
+          <p class="section-heading__copy">Это тематические примеры, а не доступные к заказу рационы.</p>
         </div>
-    </div>
-
-    <div class="order">
-        <div class="container">
-            <div class="title">Заказывай пробный день прямо сейчас!</div>
-            <form action="#" class="order__form">
-                <input required placeholder="Ваше имя" name="name" type="text" class="order__input">
-                <input required placeholder="Ваш номер телефона" name="phone" type="phone" class="order__input">
-                <img src="icons/right.svg" alt="right">
-                <button class="btn btn_dark btn_min">Перезвонить мне</button>
-            </form>
-        </div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="promotion" id="promotion">
-        <div class="bgc_y"></div>
-        <div class="container">
-            <div class="promotion__text">
-                <div class="title">Акция для новых клиентов!</div>
-                <div class="promotion__descr">
-                    Мы ценим каждого клиента и предлагаем вам стать одним из них на очень выгодных условиях. 
-                    Каждому, кто закажет доставку питание на неделю, будет предоставлена скидка в размере <span>20%!</span>
-                    <br><br>
-                    Акция закончится 20 мая в 00:00
-                </div>
+        <div class="tabcontainer">
+          <div class="tabheader__items" role="tablist" aria-label="Варианты демо-меню">
+            <button class="tabheader__item tabheader__item_active" type="button" role="tab" aria-selected="true">Овощное</button>
+            <button class="tabheader__item" type="button" role="tab" aria-selected="false">Разнообразное</button>
+            <button class="tabheader__item" type="button" role="tab" aria-selected="false">Растительное</button>
+            <button class="tabheader__item" type="button" role="tab" aria-selected="false">Сбалансированное</button>
+          </div>
+          <div class="tabcontent" role="tabpanel">
+            <img src="img/tabs/vegy.jpg" alt="Пример блюда с овощами" loading="lazy" decoding="async" />
+            <div class="tabcontent__body">
+              <p class="eyebrow">ПРИМЕР 01</p>
+              <h3>Овощное</h3>
+              <p>Демо-подборка с овощами, свежей зеленью и простыми сочетаниями продуктов.</p>
+              <span class="sample-label">СОСТАВ УСЛОВНЫЙ</span>
             </div>
-            <div class="promotion__timer">
-                <div class="title">Осталось до конца акции:</div>
-                <div class="timer">
-                    <div class="timer__block">
-                        <span id="days">12</span>
-                        дней
-                    </div>
-                    <div class="timer__block">
-                        <span id="hours">20</span>
-                        часов
-                    </div>
-                    <div class="timer__block">
-                        <span id="minutes">56</span>
-                        минут
-                    </div>
-                    <div class="timer__block">
-                        <span id="seconds">20</span>
-                        секунд
-                    </div>
-                </div>
+          </div>
+          <div class="tabcontent" role="tabpanel">
+            <img src="img/tabs/elite.jpg" alt="Пример блюда для разнообразного меню" loading="lazy" decoding="async" />
+            <div class="tabcontent__body">
+              <p class="eyebrow">ПРИМЕР 02</p>
+              <h3>Разнообразное</h3>
+              <p>Вариант оформления меню с несколькими группами продуктов и разными текстурами.</p>
+              <span class="sample-label">СОСТАВ УСЛОВНЫЙ</span>
             </div>
+          </div>
+          <div class="tabcontent" role="tabpanel">
+            <img src="img/tabs/post.jpg" alt="Пример растительного блюда" loading="lazy" decoding="async" />
+            <div class="tabcontent__body">
+              <p class="eyebrow">ПРИМЕР 03</p>
+              <h3>Растительное</h3>
+              <p>Идея меню без ингредиентов животного происхождения; данные приведены для демонстрации.</p>
+              <span class="sample-label">СОСТАВ УСЛОВНЫЙ</span>
+            </div>
+          </div>
+          <div class="tabcontent" role="tabpanel">
+            <img src="img/tabs/hamburger.jpg" alt="Пример блюда для сбалансированного меню" loading="lazy" decoding="async" />
+            <div class="tabcontent__body">
+              <p class="eyebrow">ПРИМЕР 04</p>
+              <h3>Сбалансированное</h3>
+              <p>Концепт карточки с примерным сочетанием белков, углеводов и овощей.</p>
+              <span class="sample-label">СОСТАВ УСЛОВНЫЙ</span>
+            </div>
+          </div>
         </div>
-    </div>
+      </section>
+
+      <section class="menu section-shell" id="menu" aria-labelledby="menu-title">
+        <div class="section-heading section-heading--split">
+          <div>
+            <p class="eyebrow">ЛОКАЛЬНЫЕ SAMPLE-ДАННЫЕ</p>
+            <h2 id="menu-title">Пример меню</h2>
+          </div>
+          <p class="section-heading__copy">Карточки загружаются из данных проекта. Цены, наличие и заказ здесь не представлены.</p>
+        </div>
+        <div class="menu__field" aria-live="polite">
+          <div class="container menu-grid"></div>
+        </div>
+      </section>
+
+      <section class="calculator section-shell" id="calculator" aria-labelledby="calculator-title">
+        <div class="calculator__intro">
+          <p class="eyebrow">ЛОКАЛЬНЫЙ ИНСТРУМЕНТ</p>
+          <h2 id="calculator-title">Примерный расчёт энергии</h2>
+          <p>Укажите параметры, чтобы увидеть ориентировочное значение. Это не медицинская рекомендация и не план питания.</p>
+          <div class="calculator__result-card" aria-live="polite">
+            <span class="calculator__result-label">ОРИЕНТИР НА ДЕНЬ</span>
+            <strong class="calculating__result"><span>—</span> <small>ккал</small></strong>
+          </div>
+        </div>
+        <div class="calculating__field">
+          <div class="calculator__group">
+            <div class="calculating__subtitle">1. Выберите профиль расчёта</div>
+            <div class="calculating__choose" id="gender" role="group" aria-label="Профиль расчёта">
+              <button id="female" class="calculating__choose-item calculating__choose-item_active" type="button">Женский</button>
+              <button id="male" class="calculating__choose-item" type="button">Мужской</button>
+            </div>
+          </div>
+          <div class="calculator__group">
+            <div class="calculating__subtitle">2. Введите параметры</div>
+            <div class="calculating__choose calculating__choose_medium">
+              <label class="calculator__input-label" for="height">Рост, см</label>
+              <input type="number" id="height" min="100" max="250" inputmode="decimal" placeholder="170" class="calculating__choose-item" />
+              <label class="calculator__input-label" for="weight">Вес, кг</label>
+              <input type="number" id="weight" min="30" max="300" inputmode="decimal" placeholder="65" class="calculating__choose-item" />
+              <label class="calculator__input-label" for="age">Возраст, лет</label>
+              <input type="number" id="age" min="16" max="100" inputmode="numeric" placeholder="30" class="calculating__choose-item" />
+            </div>
+          </div>
+          <div class="calculator__group">
+            <div class="calculating__subtitle">3. Оцените активность</div>
+            <div class="calculating__choose calculating__choose_big" role="group" aria-label="Уровень активности">
+              <button data-ratio="1.2" id="low" class="calculating__choose-item" type="button">Низкая</button>
+              <button data-ratio="1.375" id="small" class="calculating__choose-item calculating__choose-item_active" type="button">Невысокая</button>
+              <button data-ratio="1.55" id="medium" class="calculating__choose-item" type="button">Умеренная</button>
+              <button data-ratio="1.725" id="high" class="calculating__choose-item" type="button">Высокая</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery section-shell" aria-labelledby="gallery-title">
+        <div class="section-heading section-heading--split">
+          <div>
+            <p class="eyebrow">ЛОКАЛЬНАЯ ГАЛЕРЕЯ</p>
+            <h2 id="gallery-title">Детали и настроение</h2>
+          </div>
+          <p class="section-heading__copy">Изображения включены в репозиторий и показывают визуальный стиль учебного проекта.</p>
+        </div>
+        <div class="offer__slider" aria-label="Галерея примеров">
+          <div class="offer__slider-counter"><span id="current">01</span><span class="slider-counter__slash">/</span><span id="total">04</span></div>
+          <button class="offer__slider-prev" type="button" aria-label="Предыдущее изображение"><img src="icons/left.svg" alt="" /></button>
+          <div class="offer__slider-wrapper">
+            <div class="offer__slider-inner">
+              <div class="offer__slide"><img src="img/slider/pepper.jpg" alt="Болгарский перец и овощи" loading="lazy" decoding="async" /></div>
+              <div class="offer__slide"><img src="img/slider/food-12.jpg" alt="Пример блюда" loading="lazy" decoding="async" /></div>
+              <div class="offer__slide"><img src="img/slider/olive-oil.jpg" alt="Оливковое масло и ингредиенты" loading="lazy" decoding="async" /></div>
+              <div class="offer__slide"><img src="img/slider/paprika.jpg" alt="Паприка и специи" loading="lazy" decoding="async" /></div>
+            </div>
+          </div>
+          <button class="offer__slider-next" type="button" aria-label="Следующее изображение"><img src="icons/right.svg" alt="" /></button>
+        </div>
+      </section>
+
+      <section class="demo-contact section-shell" id="demo-contact" aria-labelledby="demo-contact-title">
+        <div>
+          <p class="eyebrow">БЕЗ РЕАЛЬНЫХ ЗАЯВОК</p>
+          <h2 id="demo-contact-title">Проверьте форму в демо-режиме</h2>
+          <p>На опубликованном сайте данные не отправляются. Локально форма может записать тестовую запись в JSON Server.</p>
+        </div>
+        <button class="btn btn_light" type="button" data-modal>Открыть демо-форму <span aria-hidden="true">↗</span></button>
+      </section>
+    </main>
 
     <footer class="footer">
-        <div class="container">
-            <div class="social">
-                <div class="subtitle">Мы в социальных сетях:</div>
-                <span class="link">instagram</span>
-                <span class="link">facebook</span>
-            </div>
-            <div class="pepper">
-                <img src="icons/veg.svg" alt="pepper">
-            </div>
-            <div class="call">
-                <div class="subtitle">Или позвоните нам</div>
-                <a href="tel:+79852126370" class="link">+79852126370</a>
-                <a href="mailto:rustik.yuldashev@yandex.ru" class="link">rustik.yuldashev@yandex.ru</a>
-            </div>
-        </div>
+      <a class="brand brand--footer" href="#top">
+        <span class="brand__mark" aria-hidden="true"><img src="icons/veg.svg" alt="" /></span>
+        <span class="brand__name">green<span>table</span></span>
+      </a>
+      <p>Учебный проект · меню и формы работают в демо-режиме</p>
+      <a class="footer__source" href="https://github.com/goldlexx/food" target="_blank" rel="noopener noreferrer">Исходный код <span aria-hidden="true">↗</span></a>
     </footer>
 
-    <div class="modal">
-        <div class="modal__dialog">
-            <div class="modal__content">
-                <form action="#">
-                    <div class="modal__close" data-close>&times;</div>
-                    <div class="modal__title">Мы свяжемся с вами как можно быстрее!</div>
-                    <input required placeholder="Ваше имя" name="name" type="text" class="modal__input">
-                    <input required placeholder="Ваш номер телефона" name="phone" type="phone" class="modal__input">
-                    <button class="btn btn_dark btn_min">Перезвонить мне</button>
-                </form>
-            </div>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+      <div class="modal__dialog">
+        <div class="modal__content">
+          <button class="modal__close" type="button" data-close aria-label="Закрыть окно">×</button>
+          <p class="eyebrow">GREEN TABLE · ДЕМО</p>
+          <h2 class="modal__title" id="modal-title">Форма для проверки интерфейса</h2>
+          <p class="modal__description">Публичная версия не отправляет заявки. В локальной сборке запись сохраняется только в тестовый JSON Server.</p>
+          <form action="#" class="demo-form">
+            <label for="modal-name">Имя</label>
+            <input required id="modal-name" placeholder="Как к вам обращаться?" name="name" type="text" class="modal__input" />
+            <label for="modal-phone">Телефон</label>
+            <input required id="modal-phone" placeholder="+7 000 000-00-00" name="phone" type="tel" class="modal__input" />
+            <button class="btn btn_primary" type="submit">Проверить форму</button>
+          </form>
+          <p class="modal__fine-print">Не вводите реальные персональные данные в публичное демо.</p>
         </div>
+      </div>
     </div>
-    <script src="dist/js/bundle.js"></script>
-</body>
+
+    <script src="dist/js/bundle.js" defer></script>
+  </body>
 </html>

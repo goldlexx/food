@@ -1,7 +1,7 @@
 {
   "name": "food",
   "version": "1.0.0",
-  "description": "A responsive food-service landing page with interactive menu and order forms.",
+  "description": "A responsive food-planning demo built with vanilla JavaScript and Webpack.",
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",

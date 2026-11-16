@@ -1,109 +1,53 @@
 function calc() {
-    const result = document.querySelector('.calculating__result span');
+    const output = document.querySelector('.calculating__result span');
+    if (!output) return;
 
-    let sex, height, weight, age, ratio;
+    const values = {sex: localStorage.getItem('sex') || 'female', ratio: Number(localStorage.getItem('ratio')) || 1.375};
+    const fields = ['height', 'weight', 'age'].map(id => document.getElementById(id));
+    const isValid = field => field && field.value !== '' && field.validity.valid && Number(field.value) > 0;
 
-    if (localStorage.getItem('sex')) {
-        sex = localStorage.getItem('sex');
-    } else {
-        sex = 'female';
-        localStorage.setItem('sex', 'female');
-    }
-
-    if (localStorage.getItem('ratio')) {
-        ratio = localStorage.getItem('ratio');
-    } else {
-        ratio = 1.375;
-        localStorage.setItem('ratio', 1.375);
-    }
-
-    function calcTotal() {
-        if (!sex || !height || !weight || !age || !ratio) {
-            result.textContent = '____';
+    const calculate = () => {
+        if (!fields.every(isValid)) {
+            output.textContent = '—';
             return;
         }
-        if (sex === 'female') {
-            result.textContent = Math.round((447.6 + (9.2 * weight) + (3.1 * height) - (4.3 * age)) * ratio);
-        } else {
-            result.textContent = Math.round((88.36 + (13.4 * weight) + (4.8 * height) - (5.7 * age)) * ratio);
-        }
-    }
+        const [height, weight, age] = fields.map(field => Number(field.value));
+        const base = values.sex === 'female'
+            ? 447.6 + 9.2 * weight + 3.1 * height - 4.3 * age
+            : 88.36 + 13.4 * weight + 4.8 * height - 5.7 * age;
+        output.textContent = String(Math.round(base * values.ratio));
+    };
 
-    calcTotal();
-
-    function initLocalSettings(selector, activeClass) {
-        const elements = document.querySelectorAll(selector);
-
-        elements.forEach(elem => {
-            elem.classList.remove(activeClass);
-            if (elem.getAttribute('id') === localStorage.getItem('sex')) {
-                elem.classList.add(activeClass);
-            }
-            if (elem.getAttribute('data-ratio') === localStorage.getItem('ratio')) {
-                elem.classList.add(activeClass);
-            }
-        });
-    }
-
-    initLocalSettings('#gender div', 'calculating__choose-item_active');
-    initLocalSettings('.calculating__choose_big div', 'calculating__choose-item_active');
-
-    function getStaticInformation(selector, activeClass) {
-        const elements = document.querySelectorAll(selector);
-
-        elements.forEach(elem => {
-            elem.addEventListener('click', (e) => {
-                if (e.target.getAttribute('data-ratio')) {
-                    ratio = +e.target.getAttribute('data-ratio');
-                    localStorage.setItem('ratio', +e.target.getAttribute('data-ratio'));
-                } else {
-                    sex = e.target.getAttribute('id');
-                    localStorage.setItem('sex', e.target.getAttribute('id'));
-                }
-    
-                elements.forEach(elem => {
-                    elem.classList.remove(activeClass);
-                });
-    
-                e.target.classList.add(activeClass);
-    
-                calcTotal();
+    const setupGroup = (selector, key, readValue) => {
+        const group = document.querySelector(selector);
+        if (!group) return;
+        const buttons = Array.from(group.querySelectorAll('button'));
+        const selected = buttons.find(button => readValue(button) === values[key]) || buttons[0];
+        if (!selected) return;
+        const activate = button => {
+            buttons.forEach(item => {
+                const active = item === button;
+                item.classList.toggle('calculating__choose-item_active', active);
+                item.setAttribute('aria-pressed', String(active));
             });
+            values[key] = readValue(button);
+            localStorage.setItem(key, String(values[key]));
+            calculate();
+        };
+        activate(selected);
+        group.addEventListener('click', event => {
+            const button = event.target.closest('button');
+            if (button && group.contains(button)) activate(button);
         });
-    }
+    };
 
-    getStaticInformation('#gender div', 'calculating__choose-item_active');
-    getStaticInformation('.calculating__choose_big div', 'calculating__choose-item_active');
-
-    function getDynamicInformation(selector) {
-        const input = document.querySelector(selector);
-
-        input.addEventListener('input', () => {
-            if (input.value.match(/\D/g)) {
-                input.style.border = "1px solid red";
-            } else {
-                input.style.border = 'none';
-            }
-            switch(input.getAttribute('id')) {
-                case "height":
-                    height = +input.value;
-                    break;
-                case "weight":
-                    weight = +input.value;
-                    break;
-                case "age":
-                    age = +input.value;
-                    break;
-            }
-
-            calcTotal();
-        });
-    }
-
-    getDynamicInformation('#height');
-    getDynamicInformation('#weight');
-    getDynamicInformation('#age');
-
+    setupGroup('#gender', 'sex', button => button.id);
+    setupGroup('.calculating__choose_big', 'ratio', button => Number(button.dataset.ratio));
+    fields.forEach(field => field?.addEventListener('input', () => {
+        field.setAttribute('aria-invalid', String(field.value !== '' && !field.validity.valid));
+        calculate();
+    }));
+    calculate();
 }
 
 export default calc;

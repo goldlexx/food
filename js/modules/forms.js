@@ -1,72 +1,37 @@
-import {closeModal, openModal} from './modal';
 import {getApiBaseUrl, postData} from '../services/services';
-function forms(formsSelector, modalTimerId) {
-    const forms = document.querySelectorAll(formsSelector);
-    const message = {
-        loading: 'img/form/spinner.svg',
-        success: 'Заявка сохранена в локальном демо-сервере.',
-        failure: 'Что-то пошло не так...'
-    };
 
-    forms.forEach(item => {
-        bindPostData(item);
-    });
+function forms(selector) {
+    document.querySelectorAll(selector).forEach(form => {
+        form.addEventListener('submit', async event => {
+            event.preventDefault();
+            if (!form.reportValidity()) return;
+            const submit = form.querySelector('[type="submit"]');
+            if (submit) submit.disabled = true;
 
-    function bindPostData(form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-
-            if (!getApiBaseUrl()) {
-                showThanksModal('Это публичное демо: заявки не отправляются.');
-                return;
+            let message;
+            try {
+                if (!getApiBaseUrl()) {
+                    message = 'Это публичное демо: заявки не отправляются.';
+                } else {
+                    await postData('requests', JSON.stringify(Object.fromEntries(new FormData(form).entries())));
+                    message = 'Тестовая запись сохранена в локальном демо-сервере.';
+                    form.reset();
+                }
+            } catch {
+                message = 'Не удалось сохранить тестовую запись. Проверьте локальный демо-сервер.';
+            } finally {
+                if (submit) submit.disabled = false;
             }
 
-            let statusMessage = document.createElement('img');
-            statusMessage.src = message.loading;
-            statusMessage.style.cssText = `
-                display: block;
-                margin: 0 auto;
-            `;
-            form.insertAdjacentElement('afterend', statusMessage);
-        
-            const formData = new FormData(form);
-
-            const json = JSON.stringify(Object.fromEntries(formData.entries()));
-
-            postData('requests', json)
-            .then(() => {
-                showThanksModal(message.success);
-                form.reset();
-            }).catch(() => {
-                showThanksModal(message.failure);
-            }).finally(() => {
-                statusMessage.remove();
-            });
+            const dialog = form.closest('.modal__dialog');
+            const status = document.createElement('p');
+            status.className = 'form-status';
+            status.setAttribute('role', 'status');
+            status.textContent = message;
+            dialog.querySelector('.form-status')?.remove();
+            form.insertAdjacentElement('afterend', status);
         });
-    }
-
-    function showThanksModal(message) {
-        const prevModalDialog = document.querySelector('.modal__dialog');
-
-        prevModalDialog.classList.add('hide');
-        openModal('.modal', modalTimerId);
-
-        const thanksModal = document.createElement('div');
-        thanksModal.classList.add('modal__dialog');
-        thanksModal.innerHTML = `
-            <div class="modal__content">
-                <div class="modal__close" data-close>×</div>
-                <div class="modal__title">${message}</div>
-            </div>
-        `;
-        document.querySelector('.modal').append(thanksModal);
-        setTimeout(() => {
-            thanksModal.remove();
-            prevModalDialog.classList.add('show');
-            prevModalDialog.classList.remove('hide');
-            closeModal('.modal');
-        }, 4000);
-    }
+    });
 }
 
 export default forms;
