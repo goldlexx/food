@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node --openssl-legacy-provider ./node_modules/webpack/bin/webpack.js --mode production"
   },
   "author": "",
   "license": "ISC",
