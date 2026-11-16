@@ -14,8 +14,8 @@
                 <img src="icons/logo.svg" alt="Логотип">
             </div>
             <nav class="header__links">
-                <a href="#" class="header__link">Доставка питания</a>
-                <a href="#" class="header__link">Второй пункт</a>
+                <a href="#menu" class="header__link">Доставка питания</a>
+                <a href="#promotion" class="header__link">Акции</a>
             </nav>
         </div>
         <div class="header__right-block">
@@ -26,12 +26,12 @@
     <div class="sidepanel">
         <div class="sidepanel__text"><span>Социальные сети</span></div>
         <div class="sidepanel__divider"></div>
-        <a href="#" class="sidepanel__icon">
-            <img src="icons/instagram.svg" alt="instagram">
-        </a>
-        <a href="#" class="sidepanel__icon">
-            <img src="icons/facebook.svg" alt="facebook">
-        </a>
+        <span class="sidepanel__icon" aria-hidden="true">
+            <img src="icons/instagram.svg" alt="">
+        </span>
+        <span class="sidepanel__icon" aria-hidden="true">
+            <img src="icons/facebook.svg" alt="">
+        </span>
     </div>
 
     <div class="preview">
@@ -184,7 +184,7 @@
 
     <div class="divider"></div>
 
-    <div class="menu">
+    <div class="menu" id="menu">
         <h2 class="title">Наше меню на день</h2>
 
         <div class="menu__field">
@@ -208,7 +208,7 @@
 
     <div class="divider"></div>
 
-    <div class="promotion">
+    <div class="promotion" id="promotion">
         <div class="bgc_y"></div>
         <div class="container">
             <div class="promotion__text">
@@ -248,16 +248,16 @@
         <div class="container">
             <div class="social">
                 <div class="subtitle">Мы в социальных сетях:</div>
-                <a href="#" class="link">instagram</a>
-                <a href="#" class="link">facebook</a>
+                <span class="link">instagram</span>
+                <span class="link">facebook</span>
             </div>
             <div class="pepper">
                 <img src="icons/veg.svg" alt="pepper">
             </div>
             <div class="call">
                 <div class="subtitle">Или позвоните нам</div>
-                <a href="#" class="link">+79852126370</a>
-                <a href="#" class="link">rustik.yuldashev@yandex.ru</a>
+                <a href="tel:+79852126370" class="link">+79852126370</a>
+                <a href="mailto:rustik.yuldashev@yandex.ru" class="link">rustik.yuldashev@yandex.ru</a>
             </div>
         </div>
     </footer>
