@@ -1,28 +1,37 @@
-# Green Table Demo
+<div align="center">
 
-A responsive food-planning interface built with vanilla JavaScript, HTML, CSS, and Webpack. The project demonstrates menu cards, accessible tabs, a nutrition estimate calculator, an image carousel, and a form state.
+# 🥗 Green Table
 
-## Live demo
+Адаптивный демо-интерфейс для планирования меню на vanilla JavaScript.
 
-[Open the GitHub Pages demo](https://goldlexx.github.io/food/)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6-f7df1e?logo=javascript&logoColor=111)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) [![Webpack](https://img.shields.io/badge/Webpack-5-8dd6f9?logo=webpack&logoColor=111)](https://webpack.js.org/) [![Demo](https://img.shields.io/badge/demo-GitHub%20Pages-222?logo=github)](https://goldlexx.github.io/food/)
 
-This is a static portfolio demo, not a food ordering service. Menu content is sample data in `db.json`; no prices, real availability, customer reviews, or public order processing are provided. The form reports that submissions are disabled on the public site. For local UI practice only, JSON Server can store test entries on the developer's machine.
+</div>
 
-## Run locally
+## Возможности
 
-Requires Node.js 18.12 or newer.
+- карточки меню из локального `db.json`;
+- вкладки, калькулятор ориентировочной калорийности и галерея;
+- публичная форма в демо-режиме без отправки заявок.
 
-```sh
+## Демонстрация
+
+[Открыть Green Table](https://goldlexx.github.io/food/)
+
+## Установка и запуск
+
+```bash
 npm ci
 npm run build
 npm run server
 ```
 
-Serve the repository root over HTTP and open `index.html`. The optional mock API listens on `127.0.0.1:3000` and uses `db.json`. Its entries are local test data only.
+Откройте `index.html` через локальный HTTP-сервер. JSON Server используется только для локальных тестовых записей.
 
-## Technologies
+## Технологии
 
-- HTML and responsive CSS
-- Vanilla JavaScript with Babel
-- Webpack 5
-- JSON Server for local-only form practice
+HTML, CSS, vanilla JavaScript, Babel, Webpack 5, JSON Server.
+
+## Лицензия
+
+Лицензия в репозитории не указана.
